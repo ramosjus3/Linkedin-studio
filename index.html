@@ -6,7 +6,6 @@
 <title>LinkedIn Content Studio</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap');
-
 :root {
   --bg: #070d17;
   --surface: #0b1622;
@@ -32,13 +31,10 @@
   --white: #e5f0fc;
   --r: 13px;
 }
-
 *{box-sizing:border-box;margin:0;padding:0;}
 body{background:var(--bg);color:var(--white);font-family:'DM Sans',sans-serif;min-height:100vh;overflow-x:hidden;}
 body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(ellipse 50% 40% at 90% 0%,rgba(37,99,235,0.1) 0%,transparent 65%),radial-gradient(ellipse 30% 25% at 0% 90%,rgba(245,158,11,0.07) 0%,transparent 60%);}
 .app{max-width:960px;margin:0 auto;padding:38px 20px 100px;position:relative;z-index:1;}
-
-/* HEADER */
 .hd{margin-bottom:32px;}
 .eyebrow{display:flex;align-items:center;gap:8px;font-family:'Syne',sans-serif;font-size:9.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--amber);margin-bottom:9px;}
 .eyebrow-bar{width:18px;height:2px;background:var(--amber);border-radius:2px;}
@@ -50,18 +46,12 @@ h1 em{font-style:normal;color:var(--blue-b);}
 .pa{background:var(--amber-dim);color:var(--amber);border:1px solid rgba(245,158,11,.22);}
 .pb{background:var(--blue-dim);color:var(--blue-b);border:1px solid rgba(37,99,235,.25);}
 .pg{background:var(--green-dim);color:var(--green);border:1px solid rgba(34,197,94,.25);}
-
-/* TABS */
 .tabs{display:flex;gap:3px;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:4px;margin-bottom:22px;width:fit-content;}
 .tab{font-family:'Syne',sans-serif;font-size:11.5px;font-weight:700;letter-spacing:.07em;padding:8px 18px;border-radius:9px;border:none;cursor:pointer;transition:all .2s;color:var(--slate);background:transparent;display:flex;align-items:center;gap:6px;}
 .tab.active{background:var(--blue);color:#fff;box-shadow:0 3px 14px rgba(37,99,235,.4);}
 .panel{display:none;}.panel.active{display:block;}
-
-/* CARD */
 .card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:22px;box-shadow:0 6px 30px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.03);margin-bottom:18px;}
 .card-title{font-family:'Syne',sans-serif;font-size:9.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--slate);margin-bottom:13px;}
-
-/* FORM */
 label.lbl{display:block;font-family:'Syne',sans-serif;font-size:9.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--slate);margin-bottom:6px;}
 select,textarea{width:100%;background:var(--surface);border:1px solid var(--border);border-radius:9px;color:var(--white);font-family:'DM Sans',sans-serif;font-size:13px;transition:border-color .2s;}
 select{padding:10px 32px 10px 12px;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='8' viewBox='0 0 10 8'%3E%3Cpath fill='%236a849e' d='M5 8L0 0h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;cursor:pointer;}
@@ -71,8 +61,6 @@ textarea::placeholder{color:var(--slate);opacity:.7;}
 .g2{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-bottom:14px;}
 @media(max-width:560px){.g2{grid-template-columns:1fr;}}
 .fld{margin-bottom:13px;}.fld:last-child{margin-bottom:0;}
-
-/* BUTTONS */
 .btn-p{width:100%;background:linear-gradient(130deg,#1a48c8,var(--blue));border:none;border-radius:10px;color:#fff;font-family:'Syne',sans-serif;font-size:13px;font-weight:700;letter-spacing:.06em;padding:13px;cursor:pointer;transition:all .22s;box-shadow:0 4px 20px rgba(37,99,235,.42);}
 .btn-p:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 8px 26px rgba(37,99,235,.58);}
 .btn-p:disabled{opacity:.5;cursor:not-allowed;transform:none;}
@@ -88,15 +76,11 @@ textarea::placeholder{color:var(--slate);opacity:.7;}
 .btn-s.cal{background:rgba(34,197,94,.08);border-color:rgba(34,197,94,.25);color:var(--green);}
 .btn-s.cal:hover{background:rgba(34,197,94,.18);border-color:rgba(34,197,94,.45);}
 .btn-s.cal:disabled{opacity:.4;cursor:not-allowed;}
-
-/* COUNT ROW */
 .crow{display:flex;align-items:center;gap:9px;margin-bottom:14px;}
 .crow-lbl{font-family:'Syne',sans-serif;font-size:9.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--slate);white-space:nowrap;}
 .cnts{display:flex;gap:5px;}
 .cnb{background:var(--surface);border:1px solid var(--border);border-radius:7px;color:var(--slate-m);font-family:'Syne',sans-serif;font-size:11px;font-weight:700;padding:6px 13px;cursor:pointer;transition:all .18s;}
 .cnb.active,.cnb:hover{background:var(--blue);border-color:var(--blue);color:#fff;}
-
-/* INJECT TOGGLE */
 .itog{display:flex;align-items:center;justify-content:space-between;cursor:pointer;}
 .itog-lbl{font-family:'Syne',sans-serif;font-size:9.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--slate);}
 .tsw{width:34px;height:19px;background:var(--surface);border:1px solid var(--border2);border-radius:20px;position:relative;cursor:pointer;transition:background .2s;flex-shrink:0;}
@@ -106,8 +90,6 @@ textarea::placeholder{color:var(--slate);opacity:.7;}
 .iarea{margin-top:13px;display:none;}.iarea.open{display:block;}
 .div-or{display:flex;align-items:center;gap:9px;margin:11px 0;color:var(--slate);font-size:11px;font-weight:300;}
 .div-or::before,.div-or::after{content:'';flex:1;height:1px;background:var(--border);}
-
-/* RESEARCH */
 .rlist{display:flex;flex-direction:column;gap:13px;}
 .scard{background:var(--card2);border:1px solid var(--border);border-radius:11px;overflow:hidden;animation:rise .32s ease both;}
 @keyframes rise{from{opacity:0;transform:translateY(13px);}to{opacity:1;transform:translateY(0);}}
@@ -125,8 +107,6 @@ textarea::placeholder{color:var(--slate);opacity:.7;}
 .ssum{font-size:13px;line-height:1.7;color:var(--slate-l);margin-bottom:9px;}
 .srel{display:flex;align-items:flex-start;gap:7px;background:var(--blue-dim);border:1px solid rgba(37,99,235,.18);border-radius:7px;padding:8px 11px;font-size:12px;color:var(--slate-m);line-height:1.55;}
 .ri{flex-shrink:0;font-size:12px;margin-top:1px;}
-
-/* SAVED TRAY */
 .stray{background:var(--surface);border:1px solid var(--border2);border-radius:11px;padding:14px;margin-bottom:18px;}
 .stray-hd{display:flex;align-items:center;justify-content:space-between;margin-bottom:11px;}
 .stray-cnt{font-family:'Syne',sans-serif;font-size:9.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);}
@@ -134,8 +114,6 @@ textarea::placeholder{color:var(--slate);opacity:.7;}
 .si{display:flex;align-items:center;justify-content:space-between;gap:9px;background:var(--card);border:1px solid var(--border);border-radius:7px;padding:8px 11px;animation:rise .22s ease both;}
 .si-title{font-size:12px;color:var(--slate-l);line-height:1.4;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 .sempty{text-align:center;color:var(--slate);font-size:12px;font-weight:300;padding:4px 0;}
-
-/* POST CARDS */
 .pstack{display:flex;flex-direction:column;gap:16px;}
 .pcard{background:var(--card);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;box-shadow:0 4px 18px rgba(0,0,0,.22);animation:rise .35s ease both;}
 .ptop{display:flex;align-items:center;justify-content:space-between;padding:11px 15px;border-bottom:1px solid var(--border);background:rgba(255,255,255,.015);}
@@ -148,8 +126,6 @@ textarea::placeholder{color:var(--slate);opacity:.7;}
 .vge{background:var(--blue-dim);color:var(--blue-b);border:1px solid rgba(37,99,235,.22);}
 .pbody{padding:18px 16px 13px;}
 .ptxt{font-size:13.5px;line-height:1.82;color:var(--slate-l);white-space:pre-wrap;word-break:break-word;}
-
-/* SCHEDULE TAB */
 .sched-layout{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
 @media(max-width:640px){.sched-layout{grid-template-columns:1fr;}}
 .cal-wrap{background:var(--card);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;}
@@ -175,8 +151,6 @@ textarea::placeholder{color:var(--slate);opacity:.7;}
 .cal-legend{display:flex;gap:12px;padding:0 14px 12px;flex-wrap:wrap;}
 .leg-item{display:flex;align-items:center;gap:5px;font-size:10.5px;color:var(--slate);font-weight:300;}
 .leg-dot{width:8px;height:8px;border-radius:50%;}
-
-/* QUEUE */
 .q-header{font-family:'Syne',sans-serif;font-size:9.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--slate);margin-bottom:12px;display:flex;align-items:center;justify-content:space-between;}
 .q-list{display:flex;flex-direction:column;gap:9px;}
 .qitem{background:var(--card);border:1px solid var(--border);border-radius:10px;overflow:hidden;animation:rise .3s ease both;}
@@ -193,8 +167,6 @@ textarea::placeholder{color:var(--slate);opacity:.7;}
 .qi-actions{display:flex;gap:6px;padding:0 12px 10px;align-items:center;flex-wrap:wrap;}
 .qi-vbadge{font-family:'Syne',sans-serif;font-size:8px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;padding:2px 7px;border-radius:20px;margin-right:auto;}
 .q-empty{text-align:center;padding:28px 16px;color:var(--slate);font-size:12.5px;font-weight:300;line-height:1.65;}
-
-/* MODAL */
 .modal-bg{position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:100;display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px);}
 .modal-bg.hidden{display:none;}
 .modal{background:var(--card);border:1px solid var(--border2);border-radius:16px;padding:26px;max-width:500px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,.6);animation:rise .25s ease both;}
@@ -216,8 +188,6 @@ textarea::placeholder{color:var(--slate);opacity:.7;}
 .modal-status.show{display:block;}
 .modal-cal-spin{display:none;text-align:center;padding:16px;color:var(--slate);font-size:13px;}
 .modal-cal-spin.show{display:block;}
-
-/* EMPTY / ERROR */
 .empty{text-align:center;padding:48px 20px;color:var(--slate);}
 .eico{font-size:34px;margin-bottom:11px;opacity:.35;}
 .empty p{font-size:13px;font-weight:300;line-height:1.7;max-width:300px;margin:0 auto;}
@@ -228,27 +198,24 @@ textarea::placeholder{color:var(--slate);opacity:.7;}
 </head>
 <body>
 <div class="app">
-
   <div class="hd">
     <div class="eyebrow"><div class="eyebrow-bar"></div>Critical Infrastructure · Enterprise AE</div>
     <h1>LinkedIn <em>Content Studio</em></h1>
     <p class="sub">Research incidents. Write posts. Schedule directly to Google Calendar.</p>
     <div class="pills">
-      <span class="pill pa">Oil & Gas</span>
+      <span class="pill pa">Oil &amp; Gas</span>
       <span class="pill pa">Midstream</span>
       <span class="pill pa">Utilities</span>
       <span class="pill pb">C-Suite Audience</span>
-      <span class="pill pg">📅 Calendar Connected</span>
+      <span class="pill pg">&#x1F4C5; Calendar Connected</span>
     </div>
   </div>
-
   <div class="tabs">
-    <button class="tab active" onclick="goTab('research')"><span>🔎</span> Research</button>
-    <button class="tab" onclick="goTab('write')"><span>✍️</span> Write</button>
-    <button class="tab" onclick="goTab('schedule')"><span>📅</span> Schedule</button>
+    <button class="tab active" onclick="goTab('research')"><span>&#x1F50E;</span> Research</button>
+    <button class="tab" onclick="goTab('write')"><span>&#x270D;&#xFE0F;</span> Write</button>
+    <button class="tab" onclick="goTab('schedule')"><span>&#x1F4C5;</span> Schedule</button>
   </div>
-
-  <!-- ══════ RESEARCH ══════ -->
+  <!-- RESEARCH -->
   <div class="panel active" id="tab-research">
     <div class="stray" id="stray" style="display:none">
       <div class="stray-hd">
@@ -258,12 +225,12 @@ textarea::placeholder{color:var(--slate);opacity:.7;}
       <div class="slist" id="slist"></div>
     </div>
     <div class="card">
-      <div class="card-title">Find real incidents & news</div>
+      <div class="card-title">Find real incidents &amp; news</div>
       <div class="g2">
         <div>
           <label class="lbl">Vertical</label>
           <select id="rVert">
-            <option value="oil gas upstream drilling production wellhead">Oil & Gas Upstream</option>
+            <option value="oil gas upstream drilling production wellhead">Oil &amp; Gas Upstream</option>
             <option value="pipeline midstream terminal compressor station">Midstream / Pipelines</option>
             <option value="electric utility grid substation power generation">Utilities / Electric Grid</option>
             <option value="critical infrastructure energy industrial">All Verticals</option>
@@ -272,17 +239,17 @@ textarea::placeholder{color:var(--slate);opacity:.7;}
         <div>
           <label class="lbl">Story Type</label>
           <select id="rType">
-            <option value="accident">Workplace Accidents & Injury Liability</option>
-            <option value="fine">Regulatory Fines & OSHA Actions</option>
-            <option value="theft">Theft & Sabotage Incidents</option>
-            <option value="news">Industry News & Emerging Threats</option>
+            <option value="accident">Workplace Accidents &amp; Injury Liability</option>
+            <option value="fine">Regulatory Fines &amp; OSHA Actions</option>
+            <option value="theft">Theft &amp; Sabotage Incidents</option>
+            <option value="news">Industry News &amp; Emerging Threats</option>
           </select>
         </div>
       </div>
       <div class="fld">
         <label class="lbl">Keyword focus (optional)</label>
         <select id="rKw">
-          <option value="">— Any —</option>
+          <option value="">&#x2014; Any &#x2014;</option>
           <option value="lone worker remote site injury">Lone worker / remote site</option>
           <option value="copper theft substation electrical">Copper theft</option>
           <option value="pipeline vandalism sabotage attack">Pipeline sabotage</option>
@@ -294,48 +261,45 @@ textarea::placeholder{color:var(--slate);opacity:.7;}
         </select>
       </div>
       <button class="btn-p" id="rBtn" onclick="doResearch()">
-        <div class="binn"><div class="spin" id="rSpin"></div><span id="rTxt">🔎 Find Stories</span></div>
+        <div class="binn"><div class="spin" id="rSpin"></div><span id="rTxt">&#x1F50E; Find Stories</span></div>
       </button>
       <div id="rErr"></div>
     </div>
-    <div id="rOut"><div class="empty"><div class="eico">📋</div><p>Search for real incidents, fines, and industry news to ground your posts in reality.</p></div></div>
+    <div id="rOut"><div class="empty"><div class="eico">&#x1F4CB;</div><p>Search for real incidents, fines, and industry news to ground your posts in reality.</p></div></div>
   </div>
-
-  <!-- ══════ WRITE ══════ -->
+  <!-- WRITE -->
   <div class="panel" id="tab-write">
     <div class="card">
       <div class="card-title">Post Settings</div>
-
-      <!-- ROW 1: Vertical + Angle -->
       <div class="g2">
         <div>
           <label class="lbl">Vertical</label>
           <select id="wVert">
-            <option value="og">🛢️ Oil & Gas Upstream</option>
-            <option value="mi">🔧 Midstream / Pipelines</option>
-            <option value="ut">⚡ Utilities / Electric Grid</option>
-            <option value="ge">🏗️ Critical Infrastructure</option>
+            <option value="og">Oil &amp; Gas Upstream</option>
+            <option value="mi">Midstream / Pipelines</option>
+            <option value="ut">Utilities / Electric Grid</option>
+            <option value="ge">Critical Infrastructure</option>
           </select>
         </div>
         <div>
           <label class="lbl">Content Angle</label>
           <select id="wAngle" onchange="updateAngleOptions()">
-            <optgroup label="── Safety & People ──">
-              <option value="safety">Worker Safety & Incident Liability</option>
+            <optgroup label="Safety &amp; People">
+              <option value="safety">Worker Safety &amp; Incident Liability</option>
               <option value="lone">Lone Worker / Remote Site Risk</option>
-              <option value="contractor">Contractor & Third-Party Accountability</option>
+              <option value="contractor">Contractor &amp; Third-Party Accountability</option>
             </optgroup>
-            <optgroup label="── Security & Assets ──">
-              <option value="perimeter">Perimeter Security & Access Control</option>
-              <option value="theft">Theft, Sabotage & Asset Protection</option>
-              <option value="incident">Incident Investigation & Documentation</option>
+            <optgroup label="Security &amp; Assets">
+              <option value="perimeter">Perimeter Security &amp; Access Control</option>
+              <option value="theft">Theft, Sabotage &amp; Asset Protection</option>
+              <option value="incident">Incident Investigation &amp; Documentation</option>
             </optgroup>
-            <optgroup label="── Business & Risk ──">
-              <option value="compliance">Regulatory & Compliance Risk</option>
+            <optgroup label="Business &amp; Risk">
+              <option value="compliance">Regulatory &amp; Compliance Risk</option>
               <option value="liability">Proving Due Diligence / Liability Shield</option>
-              <option value="fleet">Fleet & Vehicle Oversight</option>
+              <option value="fleet">Fleet &amp; Vehicle Oversight</option>
             </optgroup>
-            <optgroup label="── Category Creation ──">
+            <optgroup label="Category Creation">
               <option value="why">Why This Technology Belongs Here</option>
               <option value="future">Where the Industry Is Heading</option>
               <option value="problem">The Problem Nobody's Talking About</option>
@@ -343,32 +307,26 @@ textarea::placeholder{color:var(--slate);opacity:.7;}
           </select>
         </div>
       </div>
-
-      <!-- ROW 2: Technology + Focus Mode -->
       <div class="g2">
         <div>
           <label class="lbl">Technology</label>
           <select id="wTech" onchange="updateAngleOptions()">
-            <option value="bwc">📷 Body Worn Camera (BWC)</option>
-            <option value="lpr">🚗 LPR / License Plate Recognition</option>
-            <option value="icv">🎥 In-Car Video (M500 / 4RE)</option>
-            <option value="suite">🔗 Full Suite (BWC + LPR + ICV)</option>
+            <option value="bwc">Body Worn Camera (BWC)</option>
+            <option value="lpr">LPR / License Plate Recognition</option>
+            <option value="icv">In-Car Video (M500 / 4RE)</option>
+            <option value="suite">Full Suite (BWC + LPR + ICV)</option>
           </select>
         </div>
         <div>
           <label class="lbl">Product Focus Mode</label>
           <select id="wFocus" onchange="updateAngleOptions()">
-            <option value="direct">🎯 Direct — technology named &amp; central</option>
-            <option value="indirect">💡 Indirect — implied, problem-led</option>
-            <option value="problem">🔍 Problem Only — zero product mention</option>
+            <option value="direct">Direct &#x2014; technology named &amp; central</option>
+            <option value="indirect">Indirect &#x2014; implied, problem-led</option>
+            <option value="problem">Problem Only &#x2014; zero product mention</option>
           </select>
         </div>
       </div>
-
-      <!-- Focus mode explainer -->
       <div id="focusHint" style="background:var(--blue-dim);border:1px solid rgba(37,99,235,.2);border-radius:8px;padding:9px 12px;font-size:12px;color:var(--slate-m);line-height:1.55;margin-bottom:14px;"></div>
-
-      <!-- Count -->
       <div class="crow">
         <span class="crow-lbl">Posts</span>
         <div class="cnts">
@@ -377,11 +335,9 @@ textarea::placeholder{color:var(--slate);opacity:.7;}
           <button class="cnb" data-n="5" onclick="setCnt(this)">Week (5)</button>
         </div>
       </div>
-
-      <!-- Story inject -->
       <div class="fld">
         <div class="itog" onclick="toggleInject()">
-          <span class="itog-lbl">📌 Ground in a real story</span>
+          <span class="itog-lbl">&#x1F4CC; Ground in a real story</span>
           <div class="tsw" id="itog"><div class="tkn"></div></div>
         </div>
         <div class="iarea" id="iarea">
@@ -391,7 +347,7 @@ textarea::placeholder{color:var(--slate);opacity:.7;}
           </div>
           <div class="div-or" id="idor" style="display:none">or paste manually</div>
           <label class="lbl" style="margin-top:13px">Story / incident detail</label>
-          <textarea id="storyIn" rows="4" placeholder="Paste a headline, summary, or key facts. E.g. 'A Texas refinery faced $2.1M in OSHA fines after a lone contractor was fatally injured with no incident footage available...'"></textarea>
+          <textarea id="storyIn" rows="4" placeholder="Paste a headline, summary, or key facts..."></textarea>
           <div style="margin-top:10px">
             <label class="lbl">How to use this story</label>
             <select id="storyUse">
@@ -402,20 +358,18 @@ textarea::placeholder{color:var(--slate);opacity:.7;}
           </div>
         </div>
       </div>
-
       <button class="btn-p" id="wBtn" onclick="doWrite()">
-        <div class="binn"><div class="spin" id="wSpin"></div><span id="wTxt">✦ Generate Posts</span></div>
+        <div class="binn"><div class="spin" id="wSpin"></div><span id="wTxt">&#x2736; Generate Posts</span></div>
       </button>
       <div id="wErr"></div>
     </div>
-    <div id="wOut"><div class="empty"><div class="eico">✦</div><p>Your posts will appear here — copy to LinkedIn or schedule directly to Google Calendar.</p></div></div>
+    <div id="wOut"><div class="empty"><div class="eico">&#x2736;</div><p>Your posts will appear here &#x2014; copy to LinkedIn or schedule directly to Google Calendar.</p></div></div>
   </div>
-
-  <!-- ══════ SCHEDULE ══════ -->
+  <!-- SCHEDULE -->
   <div class="panel" id="tab-schedule">
     <div class="cal-connected">
-      <span>✅</span>
-      <span>Google Calendar connected · Invites sent to <strong>justin.ramos@motorolasolutions.com</strong> · 9:30am CST · 10 min popup reminder</span>
+      <span>&#x2705;</span>
+      <span>Google Calendar connected &middot; Invites sent to <strong>justin.ramos@motorolasolutions.com</strong> &middot; 9:30am CST &middot; 10 min popup reminder</span>
     </div>
     <div class="sched-layout">
       <div>
@@ -424,8 +378,8 @@ textarea::placeholder{color:var(--slate);opacity:.7;}
           <div class="cal-header">
             <span class="cal-month" id="calMonth"></span>
             <div class="cal-nav">
-              <button onclick="changeMonth(-1)">‹</button>
-              <button onclick="changeMonth(1)">›</button>
+              <button onclick="changeMonth(-1)">&#x2039;</button>
+              <button onclick="changeMonth(1)">&#x203A;</button>
             </div>
           </div>
           <div class="cal-grid">
@@ -448,415 +402,196 @@ textarea::placeholder{color:var(--slate);opacity:.7;}
           <button class="btn-s" onclick="goTab('write')">+ New Post</button>
         </div>
         <div class="q-list" id="qList">
-          <div class="q-empty">No posts scheduled yet.<br>Generate posts in Write, then hit 📅 Schedule.</div>
+          <div class="q-empty">No posts scheduled yet.<br>Generate posts in Write, then hit Schedule.</div>
         </div>
       </div>
     </div>
   </div>
 </div>
-
-<!-- SCHEDULE MODAL -->
+<!-- MODAL -->
 <div class="modal-bg hidden" id="modalBg" onclick="closeModalOut(event)">
   <div class="modal">
     <div class="modal-hd">
       <div>
-        <h3>📅 Schedule This Post</h3>
-        <div class="modal-sub">Pick a Mon / Wed / Fri slot — we'll add it to your Google Calendar with a reminder.</div>
+        <h3>&#x1F4C5; Schedule This Post</h3>
+        <div class="modal-sub">Pick a Mon / Wed / Fri slot &#x2014; we'll add it to your Google Calendar with a reminder.</div>
       </div>
-      <button class="modal-close" onclick="closeModal()">✕</button>
+      <button class="modal-close" onclick="closeModal()">&#x2715;</button>
     </div>
     <div class="modal-preview" id="modalPreview"></div>
     <div class="modal-slots" id="modalSlots"></div>
     <div class="modal-cal-spin" id="modalCalSpin">
       <div style="display:flex;align-items:center;justify-content:center;gap:10px;">
         <div class="spin on" style="border-color:rgba(34,197,94,.3);border-top-color:var(--green);"></div>
-        <span>Adding to Google Calendar…</span>
+        <span>Adding to Google Calendar&#x2026;</span>
       </div>
     </div>
     <div class="modal-status" id="modalStatus"></div>
   </div>
 </div>
-
 <script>
-// ══════════ STATE ══════════
-let N=1, injectOpen=false;
-let saved=[];
-let queue=[];
-let calYear, calMonth;
-let pendingText='', pendingVert='';
-
-const today=new Date();
-calYear=today.getFullYear(); calMonth=today.getMonth();
-
-const ATTENDEE='justin.ramos@motorolasolutions.com';
-
-// ══════════ TABS ══════════
-function goTab(t){
-  const names=['research','write','schedule'];
-  document.querySelectorAll('.tab').forEach((b,i)=>b.classList.toggle('active',names[i]===t));
-  document.querySelectorAll('.panel').forEach((p,i)=>p.classList.toggle('active',names[i]===t));
-  if(t==='schedule') renderCalendar();
-  if(t==='write') syncPicker();
-}
-
-function setCnt(b){document.querySelectorAll('.cnb').forEach(x=>x.classList.remove('active'));b.classList.add('active');N=parseInt(b.dataset.n);}
+var N=1,injectOpen=false,saved=[],queue=[],calYear,calMonth,pendingText='',pendingVert='';
+var today=new Date();
+calYear=today.getFullYear();calMonth=today.getMonth();
+var ATTENDEE='justin.ramos@motorolasolutions.com';
+function goTab(t){var names=['research','write','schedule'];document.querySelectorAll('.tab').forEach(function(b,i){b.classList.toggle('active',names[i]===t)});document.querySelectorAll('.panel').forEach(function(p,i){p.classList.toggle('active',names[i]===t)});if(t==='schedule')renderCalendar();if(t==='write')syncPicker();}
+function setCnt(b){document.querySelectorAll('.cnb').forEach(function(x){x.classList.remove('active')});b.classList.add('active');N=parseInt(b.dataset.n);}
 function toggleInject(){injectOpen=!injectOpen;document.getElementById('itog').classList.toggle('on',injectOpen);document.getElementById('iarea').classList.toggle('open',injectOpen);}
-
-// ══════════ SAVED ══════════
-function addSaved(s){if(saved.find(x=>x.title===s.title))return false;saved.push(s);renderTray();syncPicker();return true;}
-function removeStory(i){saved.splice(i,1);renderTray();syncPicker();}
-function clearSaved(){saved=[];renderTray();syncPicker();}
-function renderTray(){
-  const tray=document.getElementById('stray'),list=document.getElementById('slist'),cnt=document.getElementById('strayCnt');
-  if(!saved.length){tray.style.display='none';return;}
-  tray.style.display='block';cnt.textContent=`${saved.length} saved stor${saved.length>1?'ies':'y'}`;
-  list.innerHTML=saved.map((s,i)=>`<div class="si" style="animation-delay:${i*.05}s"><span class="si-title">${esc(s.title)}</span><div style="display:flex;gap:5px;flex-shrink:0"><button class="btn-s" onclick="useInWrite(${i})">Use →</button><button class="btn-s danger" onclick="removeStory(${i})">✕</button></div></div>`).join('');
-}
-function syncPicker(){
-  const p=document.getElementById('spicker'),d=document.getElementById('idor'),s=document.getElementById('spick');
-  if(!saved.length){p.style.display='none';d.style.display='none';return;}
-  p.style.display='block';d.style.display='flex';
-  s.innerHTML='<option value="">— Select a saved story —</option>'+saved.map((x,i)=>`<option value="${i}">${esc(x.title)}</option>`).join('');
-}
-function applySaved(){const i=document.getElementById('spick').value;if(!i)return;const s=saved[parseInt(i)];document.getElementById('storyIn').value=`${s.title}\n\n${s.summary}\n\nRelevance: ${s.relevance}`;}
-function useInWrite(i){goTab('write');if(!injectOpen)toggleInject();setTimeout(()=>{document.getElementById('storyIn').value=`${saved[i].title}\n\n${saved[i].summary}\n\nRelevance: ${saved[i].relevance}`;syncPicker();document.getElementById('spick').value=String(i);},100);}
-
-// ══════════ RESEARCH ══════════
-const typeMap={accident:{cls:'ta',lbl:'Workplace Accident'},theft:{cls:'tt',lbl:'Theft / Sabotage'},fine:{cls:'tf',lbl:'Regulatory Fine'},news:{cls:'tn',lbl:'Industry News'}};
-
+function addSaved(s){if(saved.find(function(x){return x.title===s.title}))return false;saved.push(s);renderTray();syncPicker();return true;}
+function removeStory(i){saved.splice(i,1);saveState();renderTray();syncPicker();}
+function clearSaved(){saved=[];saveState();renderTray();syncPicker();}
+function renderTray(){var tray=document.getElementById('stray'),list=document.getElementById('slist'),cnt=document.getElementById('strayCnt');if(!saved.length){tray.style.display='none';return;}tray.style.display='block';cnt.textContent=saved.length+' saved stor'+(saved.length>1?'ies':'y');list.innerHTML=saved.map(function(s,i){return'<div class="si" style="animation-delay:'+(i*.05)+'s"><span class="si-title">'+esc(s.title)+'</span><div style="display:flex;gap:5px;flex-shrink:0"><button class="btn-s" onclick="useInWrite('+i+')">Use</button><button class="btn-s danger" onclick="removeStory('+i+')">&times;</button></div></div>'}).join('');}
+function syncPicker(){var p=document.getElementById('spicker'),d=document.getElementById('idor'),s=document.getElementById('spick');if(!saved.length){p.style.display='none';d.style.display='none';return;}p.style.display='block';d.style.display='flex';s.innerHTML='<option value="">Select a saved story</option>'+saved.map(function(x,i){return'<option value="'+i+'">'+esc(x.title)+'</option>'}).join('');}
+function applySaved(){var i=document.getElementById('spick').value;if(!i)return;var s=saved[parseInt(i)];document.getElementById('storyIn').value=s.title+'\n\n'+s.summary+'\n\nRelevance: '+s.relevance;}
+function useInWrite(i){goTab('write');if(!injectOpen)toggleInject();setTimeout(function(){document.getElementById('storyIn').value=saved[i].title+'\n\n'+saved[i].summary+'\n\nRelevance: '+saved[i].relevance;syncPicker();document.getElementById('spick').value=String(i);},100);}
+var typeMap={accident:{cls:'ta',lbl:'Workplace Accident'},theft:{cls:'tt',lbl:'Theft / Sabotage'},fine:{cls:'tf',lbl:'Regulatory Fine'},news:{cls:'tn',lbl:'Industry News'}};
 async function doResearch(){
-  const vert=document.getElementById('rVert').value,type=document.getElementById('rType').value,kw=document.getElementById('rKw').value;
-  const btn=document.getElementById('rBtn'),spin=document.getElementById('rSpin'),txt=document.getElementById('rTxt'),err=document.getElementById('rErr');
-  err.innerHTML='';btn.disabled=true;spin.classList.add('on');txt.textContent='Searching…';
-  const tl={accident:'workplace accidents and injury liability',fine:'regulatory fines and OSHA enforcement',theft:'theft and sabotage incidents',news:'industry news and emerging security threats'};
-  const prompt=`You are a research assistant for an enterprise sales executive selling body worn cameras and LPR to oil & gas, pipeline, and utility companies.
-
-Research and summarize 4 real, specific, recent stories about: ${tl[type]}
-Vertical: ${vert}
-${kw?`Focus: ${kw}`:''}
-
-For each story:
-1. Specific factual headline (real companies, dollar amounts, dates where known)
-2. 3-4 sentence factual summary with specific details
-3. 1-2 sentence sales relevance note for selling video/camera security to C-suite buyers
-
-Return ONLY valid JSON, no markdown, no backticks:
-[{"type":"${type}","title":"...","source":"...","summary":"...","relevance":"..."}]`;
+  var vert=document.getElementById('rVert').value,type=document.getElementById('rType').value,kw=document.getElementById('rKw').value;
+  var btn=document.getElementById('rBtn'),spin=document.getElementById('rSpin'),txt=document.getElementById('rTxt'),err=document.getElementById('rErr');
+  err.innerHTML='';btn.disabled=true;spin.classList.add('on');txt.textContent='Searching...';
+  var tl={accident:'workplace accidents and injury liability',fine:'regulatory fines and OSHA enforcement',theft:'theft and sabotage incidents',news:'industry news and emerging security threats'};
+  var prompt='You are a research assistant for an enterprise sales executive selling body worn cameras and LPR to oil & gas, pipeline, and utility companies.\nResearch and summarize 4 real, specific, recent stories about: '+tl[type]+'\nVertical: '+vert+'\n'+(kw?'Focus: '+kw:'')+'\nFor each story:\n1. Specific factual headline (real companies, dollar amounts, dates where known)\n2. 3-4 sentence factual summary with specific details\n3. 1-2 sentence sales relevance note for selling video/camera security to C-suite buyers\nReturn ONLY valid JSON, no markdown, no backticks:\n[{"type":"'+type+'","title":"...","source":"...","summary":"...","relevance":"..."}]';
   try{
-    const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-5',max_tokens:4000,messages:[{role:'user',content:prompt}]})});
-    const d=await r.json();
-    const raw=d.content.map(b=>b.text||'').join('').replace(/```json|```/g,'').trim();
+    var r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-5',max_tokens:4000,messages:[{role:'user',content:prompt}]})});
+    var d=await r.json();
+    var raw=d.content.map(function(b){return b.text||''}).join('').replace(/```json|```/g,'').trim();
     window._stories=JSON.parse(raw);
     renderStories(window._stories,type);
-  }catch(e){err.innerHTML='<div class="errb">Couldn\'t load stories — please try again.</div>';}
-  finally{btn.disabled=false;spin.classList.remove('on');txt.textContent='🔎 Find Stories';}
+  }catch(e){err.innerHTML='<div class="errb">Could not load stories. Please try again.</div>';}
+  finally{btn.disabled=false;spin.classList.remove('on');txt.textContent='Find Stories';}
 }
-
 function renderStories(stories,type){
-  document.getElementById('rOut').innerHTML=`<div class="sec-lbl">${stories.length} stories found</div><div class="rlist">${stories.map((s,i)=>`<div class="scard" style="animation-delay:${i*.07}s"><div class="stop"><div class="smeta"><span class="stype ${(typeMap[s.type]||typeMap[type]).cls}">${(typeMap[s.type]||typeMap[type]).lbl}</span><div class="stitle">${esc(s.title)}</div><div class="ssrc">${esc(s.source)}</div></div><div class="sacts"><button class="btn-s" onclick="saveSt(${i},this)">⭐ Save</button><button class="btn-s" onclick="useNow(${i})">Use →</button></div></div><div class="sbody"><div class="ssum">${esc(s.summary)}</div><div class="srel"><span class="ri">💡</span><span>${esc(s.relevance)}</span></div></div></div>`).join('')}</div>`;
+  document.getElementById('rOut').innerHTML='<div class="sec-lbl">'+stories.length+' stories found</div><div class="rlist">'+stories.map(function(s,i){return'<div class="scard" style="animation-delay:'+(i*.07)+'s"><div class="stop"><div class="smeta"><span class="stype '+((typeMap[s.type]||typeMap[type]).cls)+'">'+((typeMap[s.type]||typeMap[type]).lbl)+'</span><div class="stitle">'+esc(s.title)+'</div><div class="ssrc">'+esc(s.source)+'</div></div><div class="sacts"><button class="btn-s" onclick="saveSt('+i+',this)">Save</button><button class="btn-s" onclick="useNow('+i+')">Use</button></div></div><div class="sbody"><div class="ssum">'+esc(s.summary)+'</div><div class="srel"><span class="ri">&#x1F4A1;</span><span>'+esc(s.relevance)+'</span></div></div></div>'}).join('')+'</div>';
 }
-function saveSt(i,btn){const ok=addSaved(window._stories[i]);if(!ok){btn.textContent='Already saved';return;}btn.textContent='✓ Saved!';btn.classList.add('ok');setTimeout(()=>{btn.textContent='⭐ Save';btn.classList.remove('ok');},2000);}
-function useNow(i){goTab('write');if(!injectOpen)toggleInject();setTimeout(()=>{document.getElementById('storyIn').value=`${window._stories[i].title}\n\n${window._stories[i].summary}\n\nRelevance: ${window._stories[i].relevance}`;},100);}
-
-// ══════════ WRITE ══════════
-const vm={og:{lbl:'Oil & Gas Upstream',cls:'vog',desc:'upstream oil and gas — drilling sites, production facilities, wellheads, remote field operations'},mi:{lbl:'Midstream',cls:'vmi',desc:'midstream energy — pipelines, compressor stations, pump stations, transfer terminals'},ut:{lbl:'Utilities',cls:'vut',desc:'electric utilities — substations, transmission corridors, generation assets, control rooms'},ge:{lbl:'Critical Infrastructure',cls:'vge',desc:'critical infrastructure across energy, utilities, and industrial operations'}};
-
-const techMap={
-  bwc:{lbl:'BWC',desc:'body worn cameras (BWC)',direct:'Reference body worn cameras explicitly and centrally — explain what they are in this context, why they matter, and what specific operational problems they solve.',indirect:'The post is inspired by body worn camera technology but does NOT name it directly. Instead, write about the operational problem or business risk that BWC addresses. The reader should feel the need for a solution without being told what it is.',problem:'Do NOT mention body worn cameras or any technology at all. Write purely about the operational problem, business risk, or industry gap. Zero product mentions. Build the business case through the problem alone.'},
-  lpr:{lbl:'LPR',desc:'LPR (license plate recognition) technology',direct:'Reference LPR / license plate recognition explicitly — explain how it works at facility gates, perimeter zones, and access points in industrial settings, and what problems it solves.',indirect:'The post is inspired by LPR/access control technology but does NOT name it. Write about perimeter vulnerability, unauthorized vehicle access, or the lack of visibility at facility entry points. Let the reader feel the gap.',problem:'Do NOT mention LPR or any technology. Write purely about perimeter security gaps, unauthorized access risks, or the operational consequences of not knowing who enters your facility. Zero product references.'},
-  icv:{lbl:'In-Car Video',desc:'in-car video systems (Motorola M500 and 4RE dashcam solutions)',direct:'Reference in-car video / dashcam systems explicitly in the context of industrial fleet operations — field vehicles, contractor trucks, service vehicles at energy sites. Explain what documentation gaps they close.',indirect:'The post is inspired by in-car video but does NOT name it. Write about fleet accountability gaps, the risk of unwitnessed vehicle incidents on industrial sites, or what happens when a contractor vehicle is involved in an incident with no footage.',problem:'Do NOT mention in-car video or any technology. Write purely about fleet risk, contractor vehicle accountability, or the liability exposure of industrial operators whose field vehicles have no documentation capability.'},
-  suite:{lbl:'Full Suite',desc:'an integrated video intelligence suite — body worn cameras, LPR, and in-car video working together',direct:'Reference the full technology picture: body worn cameras for personnel, LPR at the perimeter, and in-car video for fleet — and how they work together to create complete site visibility.',indirect:'Do not name specific technologies. Write about the gaps in visibility across an industrial site — at the gate, on the road, and in the field — and what it means when incidents happen and there is no record from any of those layers.',problem:'Zero technology mentions. Write about the concept of complete operational blindspots at industrial sites — what executives do not see at their perimeters, on their roads, and in their fields — and the real consequences.'}
+function saveSt(i,btn){var ok=addSaved(window._stories[i]);if(!ok){btn.textContent='Already saved';return;}btn.textContent='Saved!';btn.classList.add('ok');setTimeout(function(){btn.textContent='Save';btn.classList.remove('ok');},2000);}
+function useNow(i){goTab('write');if(!injectOpen)toggleInject();setTimeout(function(){document.getElementById('storyIn').value=window._stories[i].title+'\n\n'+window._stories[i].summary+'\n\nRelevance: '+window._stories[i].relevance;},100);}
+var vm={og:{lbl:'Oil & Gas Upstream',cls:'vog',desc:'upstream oil and gas — drilling sites, production facilities, wellheads, remote field operations'},mi:{lbl:'Midstream',cls:'vmi',desc:'midstream energy — pipelines, compressor stations, pump stations, transfer terminals'},ut:{lbl:'Utilities',cls:'vut',desc:'electric utilities — substations, transmission corridors, generation assets, control rooms'},ge:{lbl:'Critical Infrastructure',cls:'vge',desc:'critical infrastructure across energy, utilities, and industrial operations'}};
+var techMap={
+  bwc:{lbl:'BWC',desc:'body worn cameras (BWC)',direct:'Reference body worn cameras explicitly and centrally.',indirect:'Do not name the technology. Write about the operational problem that BWC addresses.',problem:'Do NOT mention body worn cameras or any technology. Zero product mentions.'},
+  lpr:{lbl:'LPR',desc:'LPR (license plate recognition) technology',direct:'Reference LPR / license plate recognition explicitly.',indirect:'Do not name LPR. Write about perimeter vulnerability and access point gaps.',problem:'Do NOT mention LPR or any technology. Zero product references.'},
+  icv:{lbl:'In-Car Video',desc:'in-car video systems (Motorola M500 and 4RE dashcam solutions)',direct:'Reference in-car video / dashcam systems explicitly in industrial fleet contexts.',indirect:'Do not name in-car video. Write about fleet accountability gaps.',problem:'Do NOT mention in-car video or any technology. Zero product mentions.'},
+  suite:{lbl:'Full Suite',desc:'an integrated video intelligence suite — body worn cameras, LPR, and in-car video',direct:'Reference the full technology picture: body worn cameras, LPR, and in-car video together.',indirect:'Do not name technologies. Write about visibility gaps across an industrial site.',problem:'Zero technology mentions. Write about complete operational blindspots at industrial sites.'}
 };
-
-const angleMap={
-  safety:'worker safety, injury documentation, and reducing liability when incidents occur at industrial sites',
-  lone:'lone worker risk — employees working in remote or isolated conditions with no witnesses and no documentation if something goes wrong',
-  contractor:'accountability and oversight for contract workers and third-party vendors operating on-site at industrial facilities',
-  perimeter:'perimeter security, access control, and the risk of unauthorized vehicles or personnel entering industrial sites',
-  theft:'asset theft, copper theft, fuel theft, equipment sabotage, and financial losses at unmanned or remote industrial sites',
-  incident:'incident investigation — what happens after an accident, near-miss, or security event when there is no footage or documentation',
-  compliance:'regulatory compliance pressure — NERC CIP, TSA pipeline security directives, OSHA, insurance requirements, and board-level risk exposure',
-  liability:'proving due diligence and protecting the company from liability after workplace incidents, safety failures, or security events',
-  fleet:'fleet and vehicle oversight — contractor trucks, field service vehicles, and the documentation gap when incidents happen on the road or at the gate',
-  why:'making the case for why video intelligence technology belongs in industrial operations — most companies in this space have never considered it',
-  future:'where the critical infrastructure security industry is heading — the shift from reactive to proactive, from guessing to knowing',
-  problem:'a specific operational problem that industrial operators face every day that has no good solution today — surfacing the gap before offering any answer'
-};
-
-const focusHints={
-  direct:'🎯 <strong>Direct:</strong> Technology is named and front-and-center. Best for audiences already curious about solutions.',
-  indirect:'💡 <strong>Indirect:</strong> Technology is implied but never named. The post leads with the problem and lets the reader connect the dots. Great for cold audiences.',
-  problem:'🔍 <strong>Problem Only:</strong> Zero product or technology mention. Pure business case building. Use this to create urgency before ever mentioning a solution.'
-};
-
-function updateAngleOptions(){
-  const tech=document.getElementById('wTech').value;
-  const focus=document.getElementById('wFocus').value;
-  const hint=document.getElementById('focusHint');
-  hint.innerHTML=focusHints[focus]||'';
-}
-
-// Init hint on load
-setTimeout(updateAngleOptions, 100);
-
+var angleMap={safety:'worker safety, injury documentation, and reducing liability',lone:'lone worker risk in remote or isolated conditions',contractor:'accountability for contract workers and third-party vendors on-site',perimeter:'perimeter security, access control, and unauthorized entry risk',theft:'asset theft, copper theft, fuel theft, and equipment sabotage',incident:'incident investigation when there is no footage or documentation',compliance:'regulatory compliance — NERC CIP, TSA, OSHA, insurance requirements',liability:'proving due diligence and protecting from liability after incidents',fleet:'fleet and vehicle oversight for contractor trucks and field vehicles',why:'why video intelligence technology belongs in industrial operations',future:'where the critical infrastructure security industry is heading',problem:'a specific operational problem that industrial operators face every day'};
+var focusHints={direct:'<strong>Direct:</strong> Technology is named and front-and-center. Best for audiences already curious about solutions.',indirect:'<strong>Indirect:</strong> Technology is implied but never named. Great for cold audiences.',problem:'<strong>Problem Only:</strong> Zero product or technology mention. Pure business case building.'};
+function updateAngleOptions(){var focus=document.getElementById('wFocus').value;var hint=document.getElementById('focusHint');hint.innerHTML=focusHints[focus]||'';}
+setTimeout(updateAngleOptions,100);
 function buildWP(vk,ak,tk,fk,n,story,use){
-  const um={auto:'Weave naturally where it fits best.',hook:'Use as the opening hook.',proof:'Use as a supporting proof point mid-post.'};
-  const sb=story&&story.trim().length>10?`\n\nREAL STORY TO USE:\n${story}\nHow to use: ${um[use]||um.auto}\nKeep facts accurate — do not fabricate figures.`:'';
-  const tech=techMap[tk];
-  const focusInstruction=tech[fk]||tech.direct;
-
-  return `You write LinkedIn posts for a Senior Enterprise Account Executive at a technology company. He sells body worn cameras, LPR, and in-car video solutions to critical infrastructure companies. He is creating a category — most companies in this space have never considered this technology.
-
-BUYER: C-suite — CSO, VP Operations, COO, CEO — at oil & gas, midstream, and utility companies.
-GOAL: Educate and build credibility. Never pitch. Never sell. Make executives think: "This person gets our world."
-
-VERTICAL: ${vm[vk].desc}
-CONTENT ANGLE: ${angleMap[ak]}
-TECHNOLOGY: ${tech.desc}
-
-PRODUCT FOCUS INSTRUCTIONS — follow these exactly:
-${focusInstruction}
-${sb}
-
-Write ${n} LinkedIn post(s).
-
-VOICE & FORMAT RULES:
-- Conversational, genuine, first-person ("I", "what I keep hearing from operators", "my conversations")
-- NEVER mention specific brand names, model numbers, or competitors
-- NEVER use CTAs like "DM me" or "reach out to learn more"
-- 180–280 words per post
-- Short paragraphs (1–3 sentences). Lots of white space. LinkedIn-native.
-- Open with a strong hook — do NOT start with "I", do NOT open with a question
-- Close with one genuine question that invites reflection or comments
-- 4–5 relevant hashtags on the final line after a blank line
-- No bullet lists. Max 1 emoji per post — zero is often better.
-${n>1?'\nEach post must be DISTINCT in hook, structure, and angle. Separate posts with:\n---BREAK---':''}
-
-Return ONLY post content. No numbering, no labels, no preamble.`;
+  var um={auto:'Weave naturally where it fits best.',hook:'Use as the opening hook.',proof:'Use as a supporting proof point mid-post.'};
+  var sb=story&&story.trim().length>10?'\n\nREAL STORY TO USE:\n'+story+'\nHow to use: '+(um[use]||um.auto)+'\nKeep facts accurate.':'';
+  var tech=techMap[tk];
+  var fi=tech[fk]||tech.direct;
+  return 'You write LinkedIn posts for a Senior Enterprise Account Executive at a technology company. He sells body worn cameras, LPR, and in-car video solutions to critical infrastructure companies.\nBUYER: C-suite at oil & gas, midstream, and utility companies.\nGOAL: Educate and build credibility. Never pitch. Never sell.\nVERTICAL: '+vm[vk].desc+'\nCONTENT ANGLE: '+angleMap[ak]+'\nTECHNOLOGY: '+tech.desc+'\nPRODUCT FOCUS: '+fi+sb+'\nWrite '+n+' LinkedIn post(s).\nRULES:\n- Conversational, genuine, first-person\n- NEVER mention specific brand names, model numbers, or competitors\n- NEVER use CTAs like "DM me"\n- 180-280 words per post\n- Short paragraphs. Lots of white space. LinkedIn-native.\n- Open with a strong hook — do NOT start with "I"\n- Close with one genuine question\n- 4-5 relevant hashtags on the final line\n- No bullet lists. Max 1 emoji per post.\n'+(n>1?'\nSeparate posts with:\n---BREAK---':'')+'\nReturn ONLY post content. No numbering, no labels, no preamble.';
 }
-
 async function doWrite(){
-  const vk=document.getElementById('wVert').value,ak=document.getElementById('wAngle').value;
-  const tk=document.getElementById('wTech').value,fk=document.getElementById('wFocus').value;
-  const story=injectOpen?document.getElementById('storyIn').value:'';
-  const use=document.getElementById('storyUse').value;
-  const btn=document.getElementById('wBtn'),spin=document.getElementById('wSpin'),txt=document.getElementById('wTxt'),err=document.getElementById('wErr');
-  err.innerHTML='';btn.disabled=true;spin.classList.add('on');txt.textContent='Writing…';
+  var vk=document.getElementById('wVert').value,ak=document.getElementById('wAngle').value;
+  var tk=document.getElementById('wTech').value,fk=document.getElementById('wFocus').value;
+  var story=injectOpen?document.getElementById('storyIn').value:'';
+  var use=document.getElementById('storyUse').value;
+  var btn=document.getElementById('wBtn'),spin=document.getElementById('wSpin'),txt=document.getElementById('wTxt'),err=document.getElementById('wErr');
+  err.innerHTML='';btn.disabled=true;spin.classList.add('on');txt.textContent='Writing...';
   try{
-    const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-5',max_tokens:4000,messages:[{role:'user',content:buildWP(vk,ak,tk,fk,N,story,use)}]})});
-    const d=await r.json();
-    const raw=d.content.map(b=>b.text||'').join('');
-    const posts=raw.split('---BREAK---').map(p=>p.trim()).filter(Boolean);
+    var r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-5',max_tokens:4000,messages:[{role:'user',content:buildWP(vk,ak,tk,fk,N,story,use)}]})});
+    var d=await r.json();
+    var raw=d.content.map(function(b){return b.text||''}).join('');
+    var posts=raw.split('---BREAK---').map(function(p){return p.trim()}).filter(Boolean);
     window._lastPosts=posts;window._lastVk=vk;window._lastTk=tk;
     renderPosts(posts,vk,tk,fk);
-  }catch(e){err.innerHTML='<div class="errb">Something went wrong — please try again.</div>';}
-  finally{btn.disabled=false;spin.classList.remove('on');txt.textContent='✦ Generate Posts';}
+  }catch(e){err.innerHTML='<div class="errb">Something went wrong. Please try again.</div>';}
+  finally{btn.disabled=false;spin.classList.remove('on');txt.textContent='Generate Posts';}
 }
-
 function renderPosts(posts,vk,tk,fk){
-  const v=vm[vk];
-  const tl=techMap[tk]?.lbl||'';
-  const fl={direct:'🎯 Direct',indirect:'💡 Indirect',problem:'🔍 Problem Only'}[fk]||'';
-  document.getElementById('wOut').innerHTML=`<div class="sec-lbl">${posts.length} post${posts.length>1?'s':''} ready</div><div class="pstack">${posts.map((p,i)=>`<div class="pcard" style="animation-delay:${i*.08}s"><div class="ptop"><div class="pmeta"><span class="pnum">POST ${i+1}</span><span class="vbadge ${v.cls}">${v.lbl}</span><span class="vbadge vge" style="background:rgba(6,182,212,.1);color:var(--cyan);border-color:rgba(6,182,212,.22)">${tl}</span><span class="vbadge" style="background:rgba(245,158,11,.1);color:var(--amber);border:1px solid rgba(245,158,11,.22)">${fl}</span></div><div style="display:flex;gap:6px"><button class="btn-s" onclick="copyPost(this,${i})">⧉ Copy</button><button class="btn-s cal" onclick="openModal(${i})">📅 Schedule</button></div></div><div class="pbody"><div class="ptxt" id="pt${i}">${esc(p)}</div></div></div>`).join('')}</div>`;
+  var v=vm[vk];var tl=techMap[tk]?techMap[tk].lbl:'';
+  var fl={direct:'Direct',indirect:'Indirect',problem:'Problem Only'}[fk]||'';
+  document.getElementById('wOut').innerHTML='<div class="sec-lbl">'+posts.length+' post'+(q�sts.length>1?'s':'')+' ready</div><div class="pstack">'+posts.map(function(p,i){return'<div class="pcard" style="animation-delay:'+(i*.08)+'s"><div class="ptop"><div class="pmeta"><span class="pnum">POST '+(i+1)+'</span><span class="vbadge '+v.cls+'">'+v.lbl+'</span><span class="vbadge vge">'+tl+'</span><span class="vbadge vog">'+fl+'</span></div><div style="display:flex;gap:6px"><button class="btn-s" onclick="copyPost(this,'+i+')">Copy</button><button class="btn-s cal" onclick="openModal('+i+')">Schedule</button></div></div><div class="pbody"><div class="ptxt" id="pt'+i+'">'+esc(p)+'</div></div></div>'}).join('')+'</div>';
 }
-
-function copyPost(btn,i){navigator.clipboard.writeText(document.getElementById('pt'+i).innerText).then(()=>{btn.textContent='✓ Copied!';btn.classList.add('ok');setTimeout(()=>{btn.textContent='⧉ Copy';btn.classList.remove('ok');},2200);});}
-
-// ══════════ MODAL ══════════
+function copyPost(btn,i){navigator.clipboard.writeText(document.getElementById('pt'+i).innerText).then(function(){btn.textContent='Copied!';btn.classList.add('ok');setTimeout(function(){btn.textContent='Copy';btn.classList.remove('ok');},2200);});}
 function openModal(i){
   pendingText=document.getElementById('pt'+i).innerText;
   pendingVert=window._lastVk||'ge';
-  document.getElementById('modalPreview').textContent=pendingText.slice(0,200)+'…';
-
-  const slots=getNextSlots(6);
-  const taken=new Set(queue.map(q=>q.dateKey));
-  document.getElementById('modalSlots').innerHTML=slots.map(s=>`<div class="mslot ${taken.has(s.key)?'taken':''}" onclick="schedulePost('${s.key}','${s.display}','${s.day}')"><div class="mslot-date">${s.display}</div><div class="mslot-day">${s.day}</div></div>`).join('');
+  document.getElementById('modalPreview').textContent=pendingText.slice(0,200)+'...';
+  var slots=getNextSlots(6);
+  var taken=new Set(queue.map(function(q){return q.dateKey}));
+  document.getElementById('modalSlots').innerHTML=slots.map(function(s){return'<div class="mslot '+(taken.has(s.key)?'taken':'')+'" onclick="schedulePost(\''+s.key+'\',\''+s.display+'\',\''+s.day+'\')"><div class="mslot-date">'+s.display+'</div><div class="mslot-day">'+s.day+'</div></div>'}).join('');
   document.getElementById('modalCalSpin').classList.remove('show');
   document.getElementById('modalStatus').classList.remove('show');
   document.getElementById('modalSlots').style.display='grid';
   document.getElementById('modalBg').classList.remove('hidden');
 }
-
 function getNextSlots(n){
-  const slots=[],d=new Date(),days=[1,3,5];
-  d.setHours(0,0,0,0);
-  let checked=0;
-  while(slots.length<n&&checked<120){
-    if(days.includes(d.getDay())){
-      const key=`${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
-      slots.push({key,display:d.toLocaleDateString('en-US',{month:'short',day:'numeric'}),day:d.toLocaleDateString('en-US',{weekday:'short'}),date:new Date(d)});
-    }
-    d.setDate(d.getDate()+1);checked++;
-  }
+  var slots=[],d=new Date(),days=[1,3,5];
+  d.setHours(0,0,0,0);var checked=0;
+  while(slots.length<n&&checked<120){if(days.includes(d.getDay())){var key=d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());slots.push({key:key,display:d.toLocaleDateString('en-US',{month:'short',day:'numeric'}),day:d.toLocaleDateString('en-US',{weekday:'short'}),date:new Date(d)});}d.setDate(d.getDate()+1);checked++;}
   return slots;
 }
-
 async function schedulePost(dateKey,display,day){
-  // Show spinner, hide slots
   document.getElementById('modalSlots').style.display='none';
   document.getElementById('modalCalSpin').classList.add('show');
-
-  // Build calendar event via Claude API with MCP
-  const [y,m,d]=dateKey.split('-');
-  const startDT=`${dateKey}T09:30:00`;
-  const endDT=`${dateKey}T09:45:00`;
-
-  const shortPreview=pendingText.slice(0,300);
-  const fullText=pendingText;
-
-  try {
-    const response = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        model: 'claude-sonnet-4-5',
-        max_tokens: 4000,
-        mcp_servers: [{ type: 'url', url: 'https://gcal.mcp.claude.com/mcp', name: 'google-calendar' }],
-        messages: [{
-          role: 'user',
-          content: `Create a Google Calendar event with these exact details:
-
-Title: 🔔 LinkedIn Post — ${display} (${day})
-Start: ${startDT}
-End: ${endDT}
-Timezone: America/Chicago
-Attendees: ${ATTENDEE}
-Color: 7 (Peacock/teal)
-Reminders: popup 10 minutes before, email 30 minutes before
-Description:
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📋 YOUR LINKEDIN POST FOR TODAY
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-${fullText}
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Steps:
-1. Copy the post text above
-2. Open LinkedIn
-3. Paste & post — you're done ✓
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Scheduled by LinkedIn Content Studio`
-        }]
-      })
-    });
-
-    const data = await response.json();
-    // Check for success in response
-    const textContent = data.content?.map(b => b.text || '').join('') || '';
-    const success = textContent.toLowerCase().includes('success') || textContent.includes('created') || data.content?.some(b => b.type === 'mcp_tool_result');
-
-    // Add to local queue regardless
-    queue.push({ id: Date.now(), dateKey, display, day, text: pendingText, vertical: pendingVert, posted: false, calAdded: true });
-    queue.sort((a,b)=>a.dateKey.localeCompare(b.dateKey));
-
+  var startDT=dateKey+'T09:30:00';var endDT=dateKey+'T09:45:00';var fullText=pendingText;
+  try{
+    await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-5',max_tokens:4000,mcp_servers:[{type:'url',url:'https://gcal.mcp.claude.com/mcp',name:'google-calendar'}],messages:[{role:'user',content:'Create a Google Calendar event:\nTitle: LinkedIn Post - '+display+' ('+day+')\nStart: '+startDT+'\nEnd: '+endDT+'\nTimezone: America/Chicago\nAttendees: '+ATTENDEE+'\nReminders: popup 10 minutes before\nDescription: YOUR LINKEDIN POST:\n'+fullText+'\nScheduled by LinkedIn Content Studio'}]})});
+    queue.push({id:Date.now(),dateKey:dateKey,display:display,day:day,text:pendingText,vertical:pendingVert,posted:false,calAdded:true});
+    queue.sort(function(a,b){return a.dateKey.localeCompare(b.dateKey)});
+    saveState();
     document.getElementById('modalCalSpin').classList.remove('show');
-    document.getElementById('modalStatus').innerHTML=`✅ Added to Google Calendar for ${display} at 9:30am · Invite sent to ${ATTENDEE}`;
+    document.getElementById('modalStatus').innerHTML='Added to Google Calendar for '+display+' at 9:30am. Invite sent to '+ATTENDEE;
     document.getElementById('modalStatus').classList.add('show');
-
-    setTimeout(()=>{
-      closeModal();
-      renderQueue();
-      renderCalendar();
-      goTab('schedule');
-    }, 2200);
-
-  } catch(e) {
-    // Even if API call has issues, save locally
-    queue.push({ id: Date.now(), dateKey, display, day, text: pendingText, vertical: pendingVert, posted: false, calAdded: false });
-    queue.sort((a,b)=>a.dateKey.localeCompare(b.dateKey));
+    setTimeout(function(){closeModal();renderQueue();renderCalendar();goTab('schedule');},2200);
+  }catch(e){
+    queue.push({id:Date.now(),dateKey:dateKey,display:display,day:day,text:pendingText,vertical:pendingVert,posted:false,calAdded:false});
+    queue.sort(function(a,b){return a.dateKey.localeCompare(b.dateKey)});
+    saveState();
     document.getElementById('modalCalSpin').classList.remove('show');
-    document.getElementById('modalStatus').innerHTML=`📅 Saved to queue for ${display}`;
+    document.getElementById('modalStatus').innerHTML='Saved to queue for '+display;
     document.getElementById('modalStatus').classList.add('show');
-    setTimeout(()=>{closeModal();renderQueue();renderCalendar();goTab('schedule');},2000);
+    setTimeout(function(){closeModal();renderQueue();renderCalendar();goTab('schedule');},2000);
   }
 }
-
 function closeModal(){document.getElementById('modalBg').classList.add('hidden');}
 function closeModalOut(e){if(e.target===document.getElementById('modalBg'))closeModal();}
-
-// ══════════ QUEUE ══════════
 function renderQueue(){
-  const el=document.getElementById('qList');
-  if(!queue.length){el.innerHTML='<div class="q-empty">No posts scheduled yet.<br>Generate posts in Write, then hit 📅 Schedule.</div>';return;}
-  el.innerHTML=queue.map((q,i)=>`<div class="qitem ${q.posted?'done':''}" style="animation-delay:${i*.06}s"><div class="qi-top"><div><div class="qi-date">${q.display} · ${q.day}</div><div class="qi-time">9:30am CST</div></div><span class="qi-stat ${q.posted?'posted':q.calAdded?'cal':'sched'}">${q.posted?'✓ Posted':q.calAdded?'📅 On Calendar':'Scheduled'}</span></div><div class="qi-body"><div class="qi-preview">${esc(q.text)}</div></div><div class="qi-actions"><span class="qi-vbadge ${vm[q.vertical]?.cls||'vge'}">${vm[q.vertical]?.lbl||'Post'}</span><button class="btn-s" onclick="copyQ(${i})">⧉ Copy</button>${!q.posted?`<button class="btn-s ok" onclick="markPosted(${i})">✓ Mark Posted</button>`:''}<button class="btn-s danger" onclick="removeQ(${i})">✕</button></div></div>`).join('');
+  var el=document.getElementById('qList');
+  if(!queue.length){el.innerHTML='<div class="q-empty">No posts scheduled yet.<br>Generate posts in Write, then hit Schedule.</div>';return;}
+  el.innerHTML=queue.map(function(q,i){return'<div class="qitem '+(q.posted?'done':'')+'" style="animation-delay:'+(i*.06)+'s"><div class="qi-top"><div><div class="qi-date">'+q.display+' &middot; '+q.day+'</div><div class="qi-time">9:30am CST</div></div><span class="qi-stat '+(q.posted?'posted':q.calAdded?'cal':'sched')+'">'+(q.posted?'Posted':q.calAdded?'On Calendar':'Scheduled')+'</span></div><div class="qi-body"><div class="qi-preview">'+esc(q.text)+'</div></div><div class="qi-actions"><span class="qi-vbadge '+(vm[q.vertical]?vm[q.vertical].cls:'vge')+'">'+(vm[q.vertical]?vm[q.vertical].lbl:'Post')+'</span><button class="btn-s" onclick="copyQ('+i+')">Copy</button>'+((!q.posted)?'<button class="btn-s ok" onclick="markPosted('+i+')">Mark Posted</button>':'')+' <button class="btn-s danger" onclick="removeQ('+i+')">&times;</button></div></div>'}).join('');
 }
-
 function copyQ(i){navigator.clipboard.writeText(queue[i].text);}
-function markPosted(i){queue[i].posted=true;renderQueue();renderCalendar();}
-function removeQ(i){queue.splice(i,1);renderQueue();renderCalendar();}
-
-// ══════════ CALENDAR ══════════
-const MONTHS=['January','February','March','April','May','June','July','August','September','October','November','December'];
+function markPosted(i){queue[i].posted=true;saveState();renderQueue();renderCalendar();}
+function removeQ(i){queue.splice(i,1);saveState();renderQueue();renderCalendar();}
+var MONTHS=['January','February','March','April','May','June','July','August','September','October','November','December'];
 function changeMonth(dir){calMonth+=dir;if(calMonth>11){calMonth=0;calYear++;}if(calMonth<0){calMonth=11;calYear--;}renderCalendar();}
-
 function renderCalendar(){
-  document.getElementById('calMonth').textContent=`${MONTHS[calMonth]} ${calYear}`;
-  const cells=document.getElementById('calCells');
-  const first=new Date(calYear,calMonth,1).getDay();
-  const days=new Date(calYear,calMonth+1,0).getDate();
-  const prevDays=new Date(calYear,calMonth,0).getDate();
-  const todayKey=`${today.getFullYear()}-${pad(today.getMonth()+1)}-${pad(today.getDate())}`;
-  const qByDay={};
-  queue.forEach(q=>{const[y,m,d]=q.dateKey.split('-');if(parseInt(y)===calYear&&parseInt(m)-1===calMonth){const k=parseInt(d);if(!qByDay[k])qByDay[k]={s:0,p:0};q.posted?qByDay[k].p++:qByDay[k].s++;}});
-  let html='';
-  for(let i=0;i<first;i++) html+=`<div class="cal-cell other-month">${prevDays-first+1+i}</div>`;
-  for(let d=1;d<=days;d++){
-    const dow=new Date(calYear,calMonth,d).getDay();
-    const isPost=[1,3,5].includes(dow);
-    const key=`${calYear}-${pad(calMonth+1)}-${pad(d)}`;
-    const isToday=key===todayKey;
-    const info=qByDay[d];
-    const hasQ=info&&(info.s+info.p)>0;
-    const allP=info&&info.p>0&&info.s===0;
-    let cls='cal-cell'+(isToday?' today':'')+(isPost?' post-day':'')+(hasQ?' has-queue':'')+(hasQ&&allP?' all-posted':'');
-    let dot=hasQ?`<div class="cal-dot${allP?' posted':''}"></div>`:isPost&&!isToday?`<div class="cal-dot open"></div>`:'';
-    html+=`<div class="${cls}">${d}${dot}</div>`;
+  document.getElementById('calMonth').textContent=MONTHS[calMonth]+' '+calYear;
+  var cells=document.getElementById('calCells');
+  var first=new Date(calYear,calMonth,1).getDay();
+  var days=new Date(calYear,calMonth+1,0).getDate();
+  var prevDays=new Date(calYear,calMonth,0).getDate();
+  var todayKey=today.getFullYear()+'-'+pad(today.getMonth()+1)+'-'+pad(today.getDate());
+  var qByDay={};
+  queue.forEach(function(q){var parts=q.dateKey.split('-');if(parseInt(parts[0])===calYear&&parseInt(parts[1])-1===calMonth){var k=parseInt(parts[2]);if(!qByDay[k])qByDay[k]={s:0,p:0};q.posted?qByDay[k].p++:qByDay[k].s++;}});
+  var html='';
+  for(var i=0;i<first;i++)html+='<div class="cal-cell other-month">'+(prevDays-first+1+i)+'</div>';
+  for(var d=1;d<=days;d++){
+    var dow=new Date(calYear,calMonth,d).getDay();
+    var isPost=[1,3,5].includes(dow);
+    var key=calYear+'-'+pad(calMonth+1)+'-'+pad(d);
+    var isToday=key===todayKey;
+    var info=qByDay[d];
+    var hasQ=info&&(info.s+info.p)>0;
+    var allP=info&&info.p>0&&info.s===0;
+    var cls='cal-cell'+(isToday?' today':'')+(isPost?' post-day':'')+(hasQ?' has-queue':'')+(hasQ&&allP?' all-posted':'');
+    var dot=hasQ?'<div class="cal-dot'+(allP?' posted':'')+'"></div>':(isPost&&!isToday?'<div class="cal-dot open"></div>':'');
+    html+='<div class="'+cls+'">'+d+dot+'</div>';
   }
-  const rem=(7-((first+days)%7))%7;
-  for(let i=1;i<=rem;i++) html+=`<div class="cal-cell other-month">${i}</div>`;
+  var rem=(7-((first+days)%7))%7;
+  for(var i=1;i<=rem;i++)html+='<div class="cal-cell other-month">'+i+'</div>';
   cells.innerHTML=html;
   renderQueue();
 }
-
-// ══════════ UTILS ══════════
 function pad(n){return String(n).padStart(2,'0');}
-function esc(s=''){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\n/g,'<br>');}
-
-// ══════════ LOCALSTORAGE PERSISTENCE ══════════
-function saveState(){
-  try{
-    localStorage.setItem('li_studio_queue', JSON.stringify(queue));
-    localStorage.setItem('li_studio_saved', JSON.stringify(saved));
-  }catch(e){}
-}
-
-function loadState(){
-  try{
-    const q=localStorage.getItem('li_studio_queue');
-    const s=localStorage.getItem('li_studio_saved');
-    if(q) queue=JSON.parse(q);
-    if(s) saved=JSON.parse(s);
-  }catch(e){}
-}
-
-// Patch mutating functions to auto-save
-const _origMarkPosted=markPosted;
-markPosted=function(i){queue[i].posted=true;saveState();renderQueue();renderCalendar();}
-const _origRemoveQ=removeQ;
-removeQ=function(i){queue.splice(i,1);saveState();renderQueue();renderCalendar();}
-const _origRemoveStory=removeStory;
-removeStory=function(i){saved.splice(i,1);saveState();renderTray();syncPicker();}
-const _origClearSaved=clearSaved;
-clearSaved=function(){saved=[];saveState();renderTray();syncPicker();}
-
-// Init
-loadState();
-renderCalendar();
-renderTray();
-syncPicker();
-setTimeout(updateAngleOptions,100);
+function esc(s){s=s||'';return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\n/g,'<br>');}
+function saveState(){try{localStorage.setItem('li_studio_queue',JSON.stringify(queue));localStorage.setItem('li_studio_saved',JSON.stringify(saved));}catch(e){}}
+function loadState(){try{var q=localStorage.getItem('li_studio_queue');var s=localStorage.getItem('li_studio_saved');if(q)queue=JSON.parse(q);if(s)saved=JSON.parse(s);}catch(e){}}
+loadState();renderCalendar();renderTray();syncPicker();setTimeout(updateAngleOptions,100);
 </script>
 </body>
 </html>
