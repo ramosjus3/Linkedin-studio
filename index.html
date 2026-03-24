@@ -198,6 +198,11 @@ textarea::placeholder{color:var(--slate);opacity:.7;}
 </head>
 <body>
 <div class="app">
+  <div id="keyBanner" style="display:none;align-items:center;gap:10px;background:rgba(245,158,11,.12);border:1px solid rgba(245,158,11,.35);border-radius:11px;padding:13px 16px;margin-bottom:20px;flex-wrap:wrap;">
+    <span style="font-size:13px;color:var(--amber);flex:1;min-width:200px;">&#x26A0;&#xFE0F; Enter your <strong>Anthropic API key</strong> to enable Research &amp; Write:</span>
+    <input id="keyInput" type="password" placeholder="sk-ant-..." style="flex:2;min-width:220px;background:var(--surface);border:1px solid var(--border2);border-radius:8px;padding:8px 12px;color:var(--white);font-size:13px;" />
+    <button onclick="saveKeyFromInput()" style="background:var(--amber);color:#0a0a0a;border:none;border-radius:8px;padding:9px 18px;font-weight:700;font-size:13px;cursor:pointer;white-space:nowrap;">Save Key</button>
+  </div>
   <div class="hd">
     <div class="eyebrow"><div class="eyebrow-bar"></div>Critical Infrastructure · Enterprise AE</div>
     <h1>LinkedIn <em>Content Studio</em></h1>
@@ -434,6 +439,11 @@ var N=1,injectOpen=false,saved=[],queue=[],calYear,calMonth,pendingText='',pendi
 var today=new Date();
 calYear=today.getFullYear();calMonth=today.getMonth();
 var ATTENDEE='justin.ramos@motorolasolutions.com';
+function getApiKey(){return localStorage.getItem('li_studio_apikey')||'';}
+function saveApiKey(k){localStorage.setItem('li_studio_apikey',k.trim());}
+function apiHeaders(){var k=getApiKey();return{'Content-Type':'application/json','x-api-key':k,'anthropic-dangerous-direct-browser-access':'true'};}
+function checkApiKey(){if(!getApiKey()){document.getElementById('keyBanner').style.display='flex';return false;}document.getElementById('keyBanner').style.display='none';return true;}
+function saveKeyFromInput(){var v=document.getElementById('keyInput').value.trim();if(!v)return;saveApiKey(v);document.getElementById('keyBanner').style.display='none';}
 function goTab(t){var names=['research','write','schedule'];document.querySelectorAll('.tab').forEach(function(b,i){b.classList.toggle('active',names[i]===t)});document.querySelectorAll('.panel').forEach(function(p,i){p.classList.toggle('active',names[i]===t)});if(t==='schedule')renderCalendar();if(t==='write')syncPicker();}
 function setCnt(b){document.querySelectorAll('.cnb').forEach(function(x){x.classList.remove('active')});b.classList.add('active');N=parseInt(b.dataset.n);}
 function toggleInject(){injectOpen=!injectOpen;document.getElementById('itog').classList.toggle('on',injectOpen);document.getElementById('iarea').classList.toggle('open',injectOpen);}
@@ -446,13 +456,14 @@ function applySaved(){var i=document.getElementById('spick').value;if(!i)return;
 function useInWrite(i){goTab('write');if(!injectOpen)toggleInject();setTimeout(function(){document.getElementById('storyIn').value=saved[i].title+'\n\n'+saved[i].summary+'\n\nRelevance: '+saved[i].relevance;syncPicker();document.getElementById('spick').value=String(i);},100);}
 var typeMap={accident:{cls:'ta',lbl:'Workplace Accident'},theft:{cls:'tt',lbl:'Theft / Sabotage'},fine:{cls:'tf',lbl:'Regulatory Fine'},news:{cls:'tn',lbl:'Industry News'}};
 async function doResearch(){
+  if(!checkApiKey())return;
   var vert=document.getElementById('rVert').value,type=document.getElementById('rType').value,kw=document.getElementById('rKw').value;
   var btn=document.getElementById('rBtn'),spin=document.getElementById('rSpin'),txt=document.getElementById('rTxt'),err=document.getElementById('rErr');
   err.innerHTML='';btn.disabled=true;spin.classList.add('on');txt.textContent='Searching...';
   var tl={accident:'workplace accidents and injury liability',fine:'regulatory fines and OSHA enforcement',theft:'theft and sabotage incidents',news:'industry news and emerging security threats'};
   var prompt='You are a research assistant for an enterprise sales executive selling body worn cameras and LPR to oil & gas, pipeline, and utility companies.\nResearch and summarize 4 real, specific, recent stories about: '+tl[type]+'\nVertical: '+vert+'\n'+(kw?'Focus: '+kw:'')+'\nFor each story:\n1. Specific factual headline (real companies, dollar amounts, dates where known)\n2. 3-4 sentence factual summary with specific details\n3. 1-2 sentence sales relevance note for selling video/camera security to C-suite buyers\nReturn ONLY valid JSON, no markdown, no backticks:\n[{"type":"'+type+'","title":"...","source":"...","summary":"...","relevance":"..."}]';
   try{
-    var r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-5',max_tokens:4000,messages:[{role:'user',content:prompt}]})});
+    var r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:apiHeaders(),body:JSON.stringify({model:'claude-sonnet-4-5',max_tokens:4000,messages:[{role:'user',content:prompt}]})});
     var d=await r.json();
     var raw=d.content.map(function(b){return b.text||''}).join('').replace(/```json|```/g,'').trim();
     window._stories=JSON.parse(raw);
@@ -484,6 +495,7 @@ function buildWP(vk,ak,tk,fk,n,story,use){
   return 'You write LinkedIn posts for a Senior Enterprise Account Executive at a technology company. He sells body worn cameras, LPR, and in-car video solutions to critical infrastructure companies.\nBUYER: C-suite at oil & gas, midstream, and utility companies.\nGOAL: Educate and build credibility. Never pitch. Never sell.\nVERTICAL: '+vm[vk].desc+'\nCONTENT ANGLE: '+angleMap[ak]+'\nTECHNOLOGY: '+tech.desc+'\nPRODUCT FOCUS: '+fi+sb+'\nWrite '+n+' LinkedIn post(s).\nRULES:\n- Conversational, genuine, first-person\n- NEVER mention specific brand names, model numbers, or competitors\n- NEVER use CTAs like "DM me"\n- 180-280 words per post\n- Short paragraphs. Lots of white space. LinkedIn-native.\n- Open with a strong hook — do NOT start with "I"\n- Close with one genuine question\n- 4-5 relevant hashtags on the final line\n- No bullet lists. Max 1 emoji per post.\n'+(n>1?'\nSeparate posts with:\n---BREAK---':'')+'\nReturn ONLY post content. No numbering, no labels, no preamble.';
 }
 async function doWrite(){
+  if(!checkApiKey())return;
   var vk=document.getElementById('wVert').value,ak=document.getElementById('wAngle').value;
   var tk=document.getElementById('wTech').value,fk=document.getElementById('wFocus').value;
   var story=injectOpen?document.getElementById('storyIn').value:'';
@@ -491,7 +503,7 @@ async function doWrite(){
   var btn=document.getElementById('wBtn'),spin=document.getElementById('wSpin'),txt=document.getElementById('wTxt'),err=document.getElementById('wErr');
   err.innerHTML='';btn.disabled=true;spin.classList.add('on');txt.textContent='Writing...';
   try{
-    var r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-5',max_tokens:4000,messages:[{role:'user',content:buildWP(vk,ak,tk,fk,N,story,use)}]})});
+    var r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:apiHeaders(),body:JSON.stringify({model:'claude-sonnet-4-5',max_tokens:4000,messages:[{role:'user',content:buildWP(vk,ak,tk,fk,N,story,use)}]})});
     var d=await r.json();
     var raw=d.content.map(function(b){return b.text||''}).join('');
     var posts=raw.split('---BREAK---').map(function(p){return p.trim()}).filter(Boolean);
@@ -503,7 +515,7 @@ async function doWrite(){
 function renderPosts(posts,vk,tk,fk){
   var v=vm[vk];var tl=techMap[tk]?techMap[tk].lbl:'';
   var fl={direct:'Direct',indirect:'Indirect',problem:'Problem Only'}[fk]||'';
-  document.getElementById('wOut').innerHTML='<div class="sec-lbl">'+posts.length+' post'+(q�sts.length>1?'s':'')+' ready</div><div class="pstack">'+posts.map(function(p,i){return'<div class="pcard" style="animation-delay:'+(i*.08)+'s"><div class="ptop"><div class="pmeta"><span class="pnum">POST '+(i+1)+'</span><span class="vbadge '+v.cls+'">'+v.lbl+'</span><span class="vbadge vge">'+tl+'</span><span class="vbadge vog">'+fl+'</span></div><div style="display:flex;gap:6px"><button class="btn-s" onclick="copyPost(this,'+i+')">Copy</button><button class="btn-s cal" onclick="openModal('+i+')">Schedule</button></div></div><div class="pbody"><div class="ptxt" id="pt'+i+'">'+esc(p)+'</div></div></div>'}).join('')+'</div>';
+  document.getElementById('wOut').innerHTML='<div class="sec-lbl">'+posts.length+' post'+(posts.length>1?'s':'')+' ready</div><div class="pstack">'+posts.map(function(p,i){return'<div class="pcard" style="animation-delay:'+(i*.08)+'s"><div class="ptop"><div class="pmeta"><span class="pnum">POST '+(i+1)+'</span><span class="vbadge '+v.cls+'">'+v.lbl+'</span><span class="vbadge vge">'+tl+'</span><span class="vbadge vog">'+fl+'</span></div><div style="display:flex;gap:6px"><button class="btn-s" onclick="copyPost(this,'+i+')">Copy</button><button class="btn-s cal" onclick="openModal('+i+')">Schedule</button></div></div><div class="pbody"><div class="ptxt" id="pt'+i+'">'+esc(p)+'</div></div></div>'}).join('')+'</div>';
 }
 function copyPost(btn,i){navigator.clipboard.writeText(document.getElementById('pt'+i).innerText).then(function(){btn.textContent='Copied!';btn.classList.add('ok');setTimeout(function(){btn.textContent='Copy';btn.classList.remove('ok');},2200);});}
 function openModal(i){
@@ -529,7 +541,7 @@ async function schedulePost(dateKey,display,day){
   document.getElementById('modalCalSpin').classList.add('show');
   var startDT=dateKey+'T09:30:00';var endDT=dateKey+'T09:45:00';var fullText=pendingText;
   try{
-    await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-5',max_tokens:4000,mcp_servers:[{type:'url',url:'https://gcal.mcp.claude.com/mcp',name:'google-calendar'}],messages:[{role:'user',content:'Create a Google Calendar event:\nTitle: LinkedIn Post - '+display+' ('+day+')\nStart: '+startDT+'\nEnd: '+endDT+'\nTimezone: America/Chicago\nAttendees: '+ATTENDEE+'\nReminders: popup 10 minutes before\nDescription: YOUR LINKEDIN POST:\n'+fullText+'\nScheduled by LinkedIn Content Studio'}]})});
+    await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:apiHeaders(),body:JSON.stringify({model:'claude-sonnet-4-5',max_tokens:4000,mcp_servers:[{type:'url',url:'https://gcal.mcp.claude.com/mcp',name:'google-calendar'}],messages:[{role:'user',content:'Create a Google Calendar event:\nTitle: LinkedIn Post - '+display+' ('+day+')\nStart: '+startDT+'\nEnd: '+endDT+'\nTimezone: America/Chicago\nAttendees: '+ATTENDEE+'\nReminders: popup 10 minutes before\nDescription: YOUR LINKEDIN POST:\n'+fullText+'\nScheduled by LinkedIn Content Studio'}]})});
     queue.push({id:Date.now(),dateKey:dateKey,display:display,day:day,text:pendingText,vertical:pendingVert,posted:false,calAdded:true});
     queue.sort(function(a,b){return a.dateKey.localeCompare(b.dateKey)});
     saveState();
@@ -592,6 +604,7 @@ function esc(s){s=s||'';return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt
 function saveState(){try{localStorage.setItem('li_studio_queue',JSON.stringify(queue));localStorage.setItem('li_studio_saved',JSON.stringify(saved));}catch(e){}}
 function loadState(){try{var q=localStorage.getItem('li_studio_queue');var s=localStorage.getItem('li_studio_saved');if(q)queue=JSON.parse(q);if(s)saved=JSON.parse(s);}catch(e){}}
 loadState();renderCalendar();renderTray();syncPicker();setTimeout(updateAngleOptions,100);
+if(!getApiKey())document.getElementById('keyBanner').style.display='flex';
 </script>
 </body>
 </html>
