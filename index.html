@@ -441,7 +441,7 @@ calYear=today.getFullYear();calMonth=today.getMonth();
 var ATTENDEE='justin.ramos@motorolasolutions.com';
 function getApiKey(){return localStorage.getItem('li_studio_apikey')||'';}
 function saveApiKey(k){localStorage.setItem('li_studio_apikey',k.trim());}
-function apiHeaders(){var k=getApiKey();return{'Content-Type':'application/json','x-api-key':k,'anthropic-dangerous-direct-browser-access':'true'};}
+function apiHeaders(){var k=getApiKey();return{'Content-Type':'application/json','x-api-key':k,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'};}
 function checkApiKey(){if(!getApiKey()){document.getElementById('keyBanner').style.display='flex';return false;}document.getElementById('keyBanner').style.display='none';return true;}
 function saveKeyFromInput(){var v=document.getElementById('keyInput').value.trim();if(!v)return;saveApiKey(v);document.getElementById('keyBanner').style.display='none';}
 function goTab(t){var names=['research','write','schedule'];document.querySelectorAll('.tab').forEach(function(b,i){b.classList.toggle('active',names[i]===t)});document.querySelectorAll('.panel').forEach(function(p,i){p.classList.toggle('active',names[i]===t)});if(t==='schedule')renderCalendar();if(t==='write')syncPicker();}
